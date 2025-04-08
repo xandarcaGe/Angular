@@ -1,0 +1,87 @@
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    margin-left: 5px;
+  }
+  
+  .pending { background-color: #ffcc00; }  /* Yellow */
+  .in-progress { background-color: #007bff; }  /* Blue */
+  .rejected { background-color: #ff4444; }  /* Red */
+  .approved { background-color: #4caf50; }  /* Green */
+  
+  .action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  /* Button Container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  /* Approve Button */
+  .approve-btn {
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    background: transparent;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+  }
+  
+  .approve-btn:hover {
+    background: #4CAF50;
+    color: white;
+  }
+  
+  /* Reject Button */
+  .reject-btn {
+    border: 2px solid #F44336;
+    color: #F44336;
+    background: transparent;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+  }
+  
+  .reject-btn:hover {
+    background: #F44336;
+    color: white;
+  }
+  
+  /* Mat Icon Styling */
+  mat-icon {
+    margin-right: 5px;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  
+  /* Snackbar Styles */
+  .success-snackbar {
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .error-snackbar {
+    background: #F44336;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+  }
+  

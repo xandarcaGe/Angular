@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<div class="request-container">
+  <mat-card class="request-card" *ngIf="request">
+    <mat-card-header>
+      <mat-card-title>🚀 Travel Request Details</mat-card-title>
+      <mat-chip-listbox>
+        <mat-chip [ngClass]="getStatusClass(request)">
+          {{ getStatusText(request) }}
+        </mat-chip>
+      </mat-chip-listbox>
+      
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <div class="request-details">
+        <div class="info-group">
+          <mat-icon>person</mat-icon> <strong>Employee Name:</strong> {{ request.employee_name }}
+        </div>
+        <div class="info-group">
+          <mat-icon>supervisor_account</mat-icon> <strong>Manager:</strong> {{ request.manager_name }}
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="info-group">
+          <mat-icon>flight_takeoff</mat-icon> <strong>From:</strong> {{ request.from_location }}
+        </div>
+        <div class="info-group">
+          <mat-icon>flight_land</mat-icon> <strong>To:</strong> {{ request.to_location }}
+        </div>
+        <div class="info-group">
+          <mat-icon>event</mat-icon> <strong>Start Date:</strong> {{ request.starting_date }}
+        </div>
+        <div class="info-group">
+          <mat-icon>event_available</mat-icon> <strong>End Date:</strong> {{ request.ending_date }}
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="info-group">
+          <mat-icon>directions_car</mat-icon> <strong>Travel Mode:</strong> {{ request.travel_mode }}
+        </div>
+        <div class="info-group">
+          <mat-icon>business_center</mat-icon> <strong>Purpose:</strong> {{ request.travel_purpose }}
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div *ngIf="request.is_lodging_required" class="info-group">
+          <mat-icon>hotel</mat-icon> <strong>Lodging:</strong> {{ request.lodging_location }}
+        </div>
+
+        <div *ngIf="request.approval_note" class="note">
+          <mat-icon>check_circle</mat-icon> <strong>Approval Note:</strong> {{ request.approval_note }}
+        </div>
+
+        <div *ngIf="request.rejection_note" class="note rejection">
+          <mat-icon>cancel</mat-icon> <strong>Rejection Note:</strong> {{ request.rejection_note }}
+        </div>
+
+        <div *ngIf="request.additional_requests" class="note additional">
+          <mat-icon>note</mat-icon> <strong>Additional Requests:</strong> {{ request.additional_requests }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

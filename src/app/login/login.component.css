@@ -1,0 +1,101 @@
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  /* Improve Label Readability */
+mat-form-field {
+    width: 100%;
+  }
+  
+  mat-label {
+    font-size: 16px; /* Increase size */
+    color: #ffffff; /* Make it pure white */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Add shadow for contrast */
+  }
+  
+  mat-form-field input {
+    color: white; /* Ensure text input is white */
+  }
+  
+  mat-icon {
+    color: white; /* Ensure icons are visible */
+  }
+  
+  /* Overlay to Darken Background */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+  
+  /* Center Login Card */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Login Card */
+  .login-card {
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title */
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  /* Login Button */
+  .login-button {
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  /* Forgot Password */
+  .login-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .forgot-password {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer */
+  .footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+  }
+  

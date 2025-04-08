@@ -1,0 +1,87 @@
+<mat-toolbar color="primary">
+  <span>Travel Mate</span>
+  <span class="spacer"></span>
+  <button mat-icon-button routerLink="/login" matTooltip="Logout">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+  <button mat-icon-button routerLink="/admin-notification" matTooltip="Notifications">
+    <mat-icon>notifications</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Back Button -->
+<!-- <button mat-stroked-button color="accent" (click)="goBack()">
+  <mat-icon>arrow_back</mat-icon> Back
+</button> -->
+<app-back-button></app-back-button>
+
+<mat-card class="content">
+  <mat-card-title>Admin Configurations</mat-card-title>
+
+  <mat-tab-group>
+    <!-- Users Tab (Employees) -->
+    <mat-tab label="Users">
+      <ng-container *ngIf="employees && employees.length > 0; else noUsers">
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let user of employees" (opened)="fetchUserDetails(user.id)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{ user.user__username }}</mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <p><strong>Email:</strong> {{ user.user__email }}</p> <!-- Display email ID -->
+            <p><strong>Role:</strong> {{ user.role }}</p>
+
+            <!-- Show detailed user data if available -->
+            <div *ngIf="userDetails && userDetails.id === user.id">
+              <p><strong>Phone:</strong> {{ userDetails.phone_no }}</p>
+              <p><strong>Department:</strong> {{ userDetails.department }}</p>
+              <p><strong>Manager:</strong> {{ userDetails.manager?.first_name }} {{ userDetails.manager?.last_name }}</p>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ng-container>
+      <ng-template #noUsers>
+        <p class="empty-message">No employees found.</p>
+      </ng-template>
+    </mat-tab>
+
+    <!-- Managers Tab -->
+    <mat-tab label="Managers">
+      <ng-container *ngIf="managers && managers.length > 0; else noManagers">
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let manager of managers">
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{ manager.user__username }}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <p><strong>Email:</strong> {{ manager.user__email }}</p>
+            <p><strong>Role:</strong> {{ manager.role }}</p>
+
+            <!-- Show detailed user data if available -->
+            <div *ngIf="userDetails && userDetails.id === manager.id">
+              <p><strong>Phone:</strong> {{ userDetails.phone_no }}</p>
+              <p><strong>Department:</strong> {{ userDetails.department }}</p>
+              <p><strong>Last Logged In:</strong> {{ manager.lastLogin || 'N/A' }}</p>
+              <p><strong>Total Requests Managed:</strong> {{ manager.totalManaged || 0 }}</p>
+            </div>
+
+            <button mat-button color="warn">Disable</button>
+            <button mat-raised-button color="warn">Remove</button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ng-container>
+      <ng-template #noManagers>
+        <p class="empty-message">No managers found.</p>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
+
+<!-- Add User Button -->
+<button mat-icon-button color="primary" [routerLink]="['/admin/add-user']">
+  <mat-icon>person_add</mat-icon>
+</button>
+
+<!-- Loading Indicator -->
+<div *ngIf="isLoading" class="loading-indicator">
+  <mat-spinner></mat-spinner>
+</div>

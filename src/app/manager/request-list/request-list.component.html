@@ -1,0 +1,12 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let request of travelRequests" [expanded]="selectedRequest === request">
+      <mat-expansion-panel-header (click)="selectedRequest = request">
+        <mat-panel-title>
+          {{ request.from_location }} → {{ request.to_location }} ({{ request.status }})
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <app-manager-view *ngIf="selectedRequest === request" [requestDetails]="request"></app-manager-view>
+    </mat-expansion-panel>
+  </mat-accordion>
+  

@@ -1,0 +1,11 @@
+.full-width-table {
+  width: 100%;
+}
+
+.table-container {
+  color: black !important; /* Ensures text is visible */
+}
+
+.mat-header-cell, .mat-cell {
+  color: black !important; /* Ensures table text is visible */
+}

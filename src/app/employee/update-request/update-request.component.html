@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<app-back-button></app-back-button>
+<mat-card class="request-card">
+  <h2>Update Travel Request</h2>
+  <form [formGroup]="requestForm" (ngSubmit)="updateRequest()">
+    <mat-form-field>
+      <mat-label>From Location</mat-label>
+      <input matInput formControlName="from_location" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>To Location</mat-label>
+      <input matInput formControlName="to_location" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Travel Mode</mat-label>
+      <mat-select formControlName="travel_mode">
+        <mat-option *ngFor="let mode of travelModes" [value]="mode">{{ mode }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Starting Date</mat-label>
+      <input matInput [matDatepicker]="startPicker" formControlName="starting_date" required>
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ending Date</mat-label>
+      <input matInput [matDatepicker]="endPicker" formControlName="ending_date" required>
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="is_lodging_required">Lodging Required</mat-checkbox>
+
+    <mat-form-field *ngIf="requestForm.get('is_lodging_required')?.value">
+      <mat-label>Lodging Location</mat-label>
+      <input matInput formControlName="lodging_location">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Travel Purpose</mat-label>
+      <input matInput formControlName="travel_purpose" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Additional Requests</mat-label>
+      <textarea matInput formControlName="additional_requests"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="requestForm.invalid">Update Request</button>
+    <button mat-raised-button color="accent" (click)="resubmitRequest()">Resubmit Request</button>
+  </form>
+</mat-card>

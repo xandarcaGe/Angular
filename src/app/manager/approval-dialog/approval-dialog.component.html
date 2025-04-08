@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Approve Request</h2>
+
+<mat-dialog-content>
+  <p>Please add an approval note:</p>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Approval Note</mat-label>
+    <textarea matInput [(ngModel)]="approvalNote"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="submitApproval()">Approve</button>
+</mat-dialog-actions>

@@ -1,0 +1,34 @@
+<mat-card class="filter-card">
+  <mat-card-title>Filter Requests</mat-card-title>
+  <mat-card-content>
+    <!-- Filter Fields -->
+    <div class="filter-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Start Date</mat-label>
+        <input matInput [formControl]="filterForm.controls.startDate" type="date">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>End Date</mat-label>
+        <input matInput [formControl]="filterForm.controls.endDate" type="date">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employee Name</mat-label>
+        <input matInput [formControl]="filterForm.controls.employeeName" placeholder="Enter employee name">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Sort By</mat-label>
+        <mat-select [formControl]="filterForm.controls.sort">
+          <mat-option value="asc">A - Z</mat-option>
+          <mat-option value="desc">Z - A</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="filter-actions">
+        <button mat-raised-button color="primary" (click)="applyFilters()">Apply Filters</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

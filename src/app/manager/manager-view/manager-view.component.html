@@ -1,0 +1,33 @@
+<mat-card class="request-card">
+    <mat-card-title>Request Details</mat-card-title>
+    <mat-card-content *ngIf="requestDetails">
+      <p><strong>From:</strong> {{ requestDetails.from_location }}</p>
+      <p><strong>To:</strong> {{ requestDetails.to_location }}</p>
+      <p><strong>Travel Mode:</strong> {{ requestDetails.travel_mode }}</p>
+      <p><strong>Starting Date:</strong> {{ requestDetails.starting_date | date }}</p>
+      <p><strong>Ending Date:</strong> {{ requestDetails.ending_date | date }}</p>
+      <p><strong>Lodging Required:</strong> {{ requestDetails.is_lodging_required ? 'Yes' : 'No' }}</p>
+      <p *ngIf="requestDetails.is_lodging_required"><strong>Lodging Location:</strong> {{ requestDetails.lodging_location }}</p>
+      <p><strong>Purpose:</strong> {{ requestDetails.travel_purpose }}</p>
+      <p><strong>Additional Requests:</strong> {{ requestDetails.additional_requests }}</p>
+  
+      <p><strong>Status:</strong> 
+        <span class="status-badge pending" *ngIf="requestDetails.is_pending">Pending</span>
+        <span class="status-badge in-progress" *ngIf="requestDetails.is_in_progress">In Progress</span>
+        <span class="status-badge rejected" *ngIf="requestDetails.is_rejected">Rejected</span>
+        <span class="status-badge approved" *ngIf="requestDetails.is_approved">Approved</span>
+      </p>
+      <div class="button-container">
+        <div class="button-container">
+            <button mat-stroked-button class="approve-btn" (click)="approveRequest()">
+              <mat-icon>check_circle</mat-icon> Approve
+            </button>
+            <button mat-stroked-button class="reject-btn" (click)="rejectRequest()">
+              <mat-icon>cancel</mat-icon> Reject
+            </button>
+          </div>
+          
+      </div>
+      
+    </mat-card-content>
+  </mat-card>
