@@ -1,0 +1,12 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  .content {
+    margin: 20px;
+  }
+  .add-user-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  

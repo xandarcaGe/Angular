@@ -1,0 +1,39 @@
+.spacer {
+  flex: 1;
+}
+
+/* Hide menu button on larger screens */
+.menu-btn {
+  display: none;
+}
+
+/* Show desktop navigation links */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure sidenav container takes full height */
+.sidenav-container {
+  height: 4vh;
+}
+
+/* Ensure sidenav has proper width */
+.sidenav {
+  width: 250px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide normal navbar links on small screens */
+  }
+  
+  .menu-btn {
+    display: block; /* Show menu button on small screens */
+  }
+
+  .sidenav-container {
+    display: block;
+  }
+}

@@ -1,0 +1,102 @@
+.request-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .request-card {
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .request-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .info-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  mat-divider {
+    margin: 10px 0;
+  }
+  
+  .note {
+    background-color: #e3f2fd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .rejection {
+    background-color: #ffebee;
+  }
+  
+  .additional {
+    background-color: #f3e5f5;
+  }
+  
+  mat-chip {
+    font-weight: bold;
+    padding: 5px 10px;
+  }
+  
+  .approved {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+  }
+  
+  .pending {
+    background-color: #fff9c4;
+    color: #f57f17;
+  }
+  
+  .rejected {
+    background-color: #ffcdd2;
+    color: #c62828;
+  }
+  
+  .in-progress {
+    background-color: #bbdefb;
+    color: #1565c0;
+  }
+  
+  .resubmitted {
+    background-color: #d1c4e9;
+    color: #4527a0;
+  }
+  
+  .approved-chip {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .pending-chip {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .rejected-chip {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .in-progress-chip {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .resubmitted-chip {
+    background-color: #9c27b0;
+    color: white;
+  }
+  
+  .default-chip {
+    background-color: gray;
+    color: white;
+  }
+  

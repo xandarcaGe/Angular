@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<mat-card *ngIf="notifications.length > 0; else noNotifications">
+    <mat-card-title>Email Notifications</mat-card-title>
+    <mat-list>
+      <mat-list-item *ngFor="let notification of notifications">
+        <p>{{ notification.subject }}</p>
+        <small>{{ notification.message }}</small>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  
+  <ng-template #noNotifications>
+    <mat-card>
+      <mat-card-content>No notifications found.</mat-card-content>
+    </mat-card>
+  </ng-template>
+  

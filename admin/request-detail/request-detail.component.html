@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<app-back-button></app-back-button>
+<div class="request-detail-container" *ngIf="requestDetail">
+    <h2>Request Details</h2>
+    
+    <p><strong>Request ID:</strong> {{ requestDetail.id }}</p>
+    <p><strong>User:</strong> {{ requestDetail.employee_name }}</p>
+    <p><strong>From:</strong> {{ requestDetail.from_location }}</p>
+    <p><strong>To:</strong> {{ requestDetail.to_location }}</p>
+    <p><strong>Travel Mode:</strong> {{ requestDetail.travel_mode }}</p>
+    <p><strong>Starting Date:</strong> {{ requestDetail.starting_date }}</p>
+    <p><strong>Ending Date:</strong> {{ requestDetail.ending_date }}</p>
+    <p><strong>Purpose:</strong> {{ requestDetail.travel_purpose }}</p>
+    <p><strong>Status:</strong> {{ requestDetail.approval_note }}</p>
+  
+    
+  </div>
+  
+  <!-- Show loading state while fetching -->
+  <p *ngIf="!requestDetail">Loading...</p>
+  

@@ -1,0 +1,54 @@
+<video class="video-background" autoplay muted loop>
+    <source src="assets/login.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<!-- Overlay -->
+<div class="overlay"></div>
+
+<section class="login-container">
+    <mat-card class="login-card">
+        <mat-card-content class="login-content">
+            <h2 class="title">
+                <mat-icon>lock</mat-icon> Employee Login
+            </h2>
+            <p class="subtitle">Enter your login and password</p>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <!-- Username Field -->
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" placeholder="Enter your username">
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-error *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+                        Username is required
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Password Field with Eye Toggle -->
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="passwordFieldType" formControlName="password" placeholder="Enter your password">
+                    <button mat-icon-button matSuffix type="button" (click)="togglePasswordVisibility()">
+                        <mat-icon>{{ passwordFieldType === 'password' ? 'visibility' : 'visibility_off' }}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                        Password is required
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" class="login-button" type="submit" [disabled]="loginForm.invalid">
+                    Login
+                </button>
+            </form>
+        </mat-card-content>
+
+        <mat-card-actions class="login-actions">
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </mat-card-actions>
+    </mat-card>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2025 Travel Mate | Designed for Your Travel Convenience</p>
+</footer>

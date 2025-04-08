@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+
+<!-- Page Header -->
+<mat-toolbar color="primary" class="page-header">
+  <mat-icon>work</mat-icon>
+  <span>Employee Dashboard</span>
+  <span class="spacer"></span>
+  <button mat-raised-button color="accent" routerLink="/employee/new-request">
+    <mat-icon>add</mat-icon> New Request
+  </button>
+</mat-toolbar>
+
+<!-- Grid Layout for Better UI -->
+<div class="dashboard-container">
+    <!-- Left: Chart Card -->
+    <mat-card class="chart-card">
+      <mat-card-title>Request Statistics</mat-card-title>
+      <mat-card-content>
+        <ngx-charts-bar-vertical
+          [results]="requestStats"
+          [view]="view"
+          [scheme]="colorScheme"
+          [gradient]="false"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="true"
+          [showDataLabel]="true"
+          [roundEdges]="true">
+        </ngx-charts-bar-vertical>
+      </mat-card-content>
+    </mat-card>
+  
+    <!-- Right: Summary & Progress Card -->
+    <div class="summary-container">
+      <mat-card class="summary-card">
+        <mat-card-title>Summary</mat-card-title>
+        <mat-card-content>
+          <p><strong>Total Requests:</strong> 12</p>
+          <p><strong>Pending Requests:</strong> 3</p>
+          <p><strong>Approved Requests:</strong> 8</p>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="progress-card">
+        <mat-card-title>Progress</mat-card-title>
+        <mat-card-content>
+          <p>Requests Processed</p>
+          <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  
+
+<!-- Travel Requests Table -->
+<mat-card class="table-card">
+  <mat-card-title>My Travel Requests</mat-card-title>
+  <mat-card-content>
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- From Location Column -->
+        <ng-container matColumnDef="from_location">
+          <th mat-header-cell *matHeaderCellDef> From </th>
+          <td mat-cell *matCellDef="let request"> {{ request.from_location }} </td>
+        </ng-container>
+
+        <!-- To Location Column -->
+        <ng-container matColumnDef="to_location">
+          <th mat-header-cell *matHeaderCellDef> To </th>
+          <td mat-cell *matCellDef="let request"> {{ request.to_location }} </td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let request"> {{ request.starting_date }} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let request">
+            <mat-chip [color]="request.status === 'Pending' ? 'warn' : 'primary'">
+              {{ request.status }}
+            </mat-chip>
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let request">
+            <button mat-icon-button color="primary" [routerLink]="['/employee/detail', request.id]">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" *ngIf="request.is_pending" [routerLink]="['/employee/update-request', request.id]">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-toolbar class="footer">
+    <span>&copy; 2025 Travel Request System | All rights reserved</span>
+  </mat-toolbar>
+  

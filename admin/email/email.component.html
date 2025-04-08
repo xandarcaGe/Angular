@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<app-back-button></app-back-button>
+<mat-card class="email-form-card">
+    <mat-card-title>Send Email Request</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Request ID</mat-label>
+          <input matInput formControlName="requestId" type="number" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Additional Request</mat-label>
+          <textarea matInput formControlName="additionalRequest" rows="4" required></textarea>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit" [disabled]="!emailForm.valid || isLoading">
+          {{ isLoading ? 'Sending...' : 'Send Email' }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

@@ -1,0 +1,30 @@
+.request-card {
+    margin: 20px;
+    padding: 15px;
+  }
+  
+  mat-chip {
+    font-weight: bold;
+  }
+  
+  .filter-card {
+    margin: 10px 0;
+    padding: 15px;
+  }
+  
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .filter-section {
+    margin: 20px 0;
+  }
+  

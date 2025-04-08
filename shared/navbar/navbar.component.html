@@ -1,0 +1,54 @@
+<mat-toolbar color="primary">
+  <!-- Hamburger Button (Only visible on small screens) -->
+  <button mat-icon-button (click)="toggleSidenav()" class="menu-btn">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span>Travel Mate</span>
+  <span class="spacer"></span>
+
+  <!-- Desktop Navigation -->
+  <div class="nav-links">
+    <button mat-button *ngIf="role === 'admin' || role === 'employee' || role === 'manager'"
+      [routerLink]="role === 'admin' ? '/admin/home' : (role === 'employee' ? '/employee/home' : '/manager/home')">
+      Home
+    </button>
+
+    <button mat-button *ngIf="role === 'admin'" routerLink="/admin/config">Config</button>
+    <button mat-button *ngIf="role === 'employee'" routerLink="/employee/new-request">New</button>
+
+    <button mat-icon-button *ngIf="role === 'admin' || role === 'manager'" 
+      [routerLink]="role === 'admin' ? '/admin/email' : '/manager/email'">
+      <mat-icon>mail</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="logout()" matTooltip="Logout">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+
+    <button mat-icon-button [routerLink]="notificationPath" matTooltip="Notifications">
+      <mat-icon>notifications</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<!-- Responsive Side Navigation -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="over" class="sidenav" (click)="closeSidenav()">
+    <button mat-button *ngIf="role === 'admin' || role === 'employee' || role === 'manager'"
+      [routerLink]="role === 'admin' ? '/admin/home' : (role === 'employee' ? '/employee/home' : '/manager/home')">
+      Home
+    </button>
+
+    <button mat-button *ngIf="role === 'admin'" routerLink="/admin/config">Config</button>
+    <button mat-button *ngIf="role === 'employee'" routerLink="/employee/new-request">New</button>
+
+    <button mat-button *ngIf="role === 'admin' || role === 'manager'" 
+      [routerLink]="role === 'admin' ? '/admin/email' : '/manager/email'">
+      Email
+    </button>
+
+    <button mat-button (click)="logout()">Logout</button>
+    <button mat-button [routerLink]="notificationPath">Notifications</button>
+  </mat-sidenav>
+</mat-sidenav-container>
